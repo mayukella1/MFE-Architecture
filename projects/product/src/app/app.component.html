@@ -1,0 +1,28 @@
+
+<p>Product</p>
+
+<h3>Method 1: Observable / BehaviorSubject</h3>
+<button (click)="sendProduct()">Send to Account (Observable)</button>
+<p>Received in Account: {{ receiveProductName || 'Waiting for observable update...' }}</p>
+
+<h3>Method 2: Window Object</h3>
+<button (click)="sendProductViaWindow()">Send to Account (Window Object)</button>
+
+<h3>Method 3: iframe + postMessage</h3>
+<button (click)="sendProductViaIframe()">
+  {{ iframeVisible ? 'Hide iframe demo' : 'Show iframe demo' }}
+</button>
+<p>{{ iframeResponseMessage || 'No iframe response yet.' }}</p>
+
+<iframe
+  *ngIf="iframeVisible"
+  id="account-iframe"
+  title="Account MFE"
+  src="http://localhost:4202"
+  width="100%"
+  height="420"
+  style="border: 1px solid #ccc; margin-top: 16px;"
+></iframe>
+
+<lib-mfe-button></lib-mfe-button>
+<router-outlet></router-outlet>

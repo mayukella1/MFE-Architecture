@@ -1,0 +1,19 @@
+
+<p>Account</p>
+<h3>Method 1: Observable / BehaviorSubject</h3>
+<p>Received Product: {{ receiveProductName || 'Waiting for observable update...' }}</p>
+
+<h3>Method 2: Window Object</h3>
+<button (click)="getProductFromWindow()">Get Product from Window</button>
+<button (click)="clearWindowData()">Clear Window Data</button>
+<div *ngIf="windowProductData">
+  <p>Product Name: {{ windowProductData.name }}</p>
+  <p>Price: {{ windowProductData.price }}</p>
+  <p>Time: {{ windowProductData.timestamp | date:'short' }}</p>
+</div>
+
+<h3>Method 3: iframe using postMessage</h3>
+<p>Received Product via iframe: {{ iframeProductData || 'Waiting for iframe message...' }}</p>
+<p>{{ iframeStatusMessage || 'No iframe message received yet.' }}</p>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,8 @@
+.unique_btn{
+    width: 120px;
+    height: 35px;
+    background-color: green;
+    border-radius: 4px;
+    padding: 5px;
+    color: white;
+}
